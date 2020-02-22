@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://use.fontawesome.com/fbd4e5d01e.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>GPA Calculator</title>
+  </head>
+
+  <!-- add one course at load -->
+  <body onload="addCourse()">
+    <!-- Start of page -->
+    <div class="container">
+      <!-- Entire form for Calculator -->
+  	  <form action="gpa.html" method="POST" id="gpa_form">
+        <!-- Main Container  -- >
+        <div class="row" style = "padding: 15px;">
+          <!-- Left container 'instructions' -->
+  			  <div class = "col-sm-4">
+    				<h2 id="gpa-title">GPA Calculator:</h2>
+    				<h3>Instructions:</h3>
+    				<p>In the boxes labeled <b>"Current GPA"</b> and <b>"Total Credits"</b> please enter <b>BOTH</b> values or leave blank if this is your first semester or have no credits.</p>
+            <p>To add a course, click on the <b>"+"</b> button and to remove a course, click on the <b>"-"</b> button. <br></p>
+    				<p>In the following boxes input the grade <b>percentage (0 to 100)</b> you received and the number of credits for that course.<br></p>
+    				<p>When you are finished select the "Calculate GPA" button to see your calculated GPA for the values you entered. </p>
+    			</div> <!-- end left container -->
+
+  			  <br><br>
+
+  			  <!-- Right container -->
+  			  <div class="col-sm-8 ">
+
+  		 		<!-- form container -->
+    				<div id="form_set">
+              <!-- top container on right -->
+    					<div class="row" style="padding-left: 15px">
+                <!-- current gpa and +/- divs -->
+    						<div class="col-sm-12 gpa">
+                  <div class="form-group col-sm-3"></div><!-- placeholder div to center other divs -->
+                    <div class="form-group col-sm-3 text-center">
+                      <label for="currentGPA">Current GPA</label>
+                      <input type="number" class="form-control btn_round" id="currentGPA" placeholder="(optional)" min="0" max="4" step=".01">
+                    </div>
+                    <div class="form-group col-sm-3 text-center">
+                      <label for="currentGPA">Total Credits</label>
+                      <input type="number" class="form-control btn_round" id="currentCredits" placeholder="(optional)" min="0" max="120" step=".1">
+                    </div>
+
+                    <!-- this div is just for bottom border -->
+                    <div class="form-group col-sm-12 form-wborder">
+                    </div>
+                </div><!-- end current gpa and +/- -->
+
+                <!-- This div marks where to insert courses object -->
+                <div id="course_div"></div>
+
+                <!-- Reset and calculate gpa buttons -->
+                <div class="col-sm-12" style="text-align: center">
+                  <input type="button" id="resetButton" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Clear all values and start over" value="Reset" class="btn btn-default btn_round">
+                  <input type="submit" value="Calculate GPA" class="btn btn-primary btn_round">
+                </div><br> <!-- end buttons -->
+              </div><!-- end top container on right -->
+
+      				<!-- RESULTS section -->
+      				<div class="row">
+      					<hr>
+      					<div class="col-sm-6 text-center">
+      						<h2>Cumulative GPA</h2>
+      						<h4 id="cumulativeGpa">0.0</h4>
+      					</div>
+      					<div class="col-sm-6 text-center">
+      						<h2>Semester GPA</h2>
+      						<h4 id="semesterGpa">0.0</h4>
+      					</div>
+      				</div><!-- end RESULTS section -->
+      			</div><!-- end form container -->
+      		</div><!-- end right container -->
+      	</form><!-- End calculator form -->
+  	  </div><!-- end Main Container -->
+
+  	  <!--JS Files-->
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="popper.min.js"></script>
+      <script>
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+        })
+      </script>
+  	  <!-- Latest compiled and minified JavaScript -->
+  	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="script.js"></script>
+	   </body>
+	</html>
